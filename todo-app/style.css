@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+:root {
+    font-size: 13px;
+}
+
 #app {
     height: 100vh;
     padding-top: 20px;
@@ -107,8 +111,49 @@
     cursor: pointer;
 }
 
-@media (max-width:740px) {
+@media (min-width: 1200px) {
     :root {
-        font-size: 13px;
+        font-size: 16px;
     }
+
+    #app {
+        background-image: url(./background\ hd.jpg);
+        backdrop-filter: blur(20px);
+        padding-top: 50px;
+    }
+
+    #app-head {
+        width: 60%;
+        margin-bottom: 50px;
+        height: 100px;
+    }
+
+    #app-head h1 {
+        font-size: 4rem;
+    }
+
+    #app-body {
+        width: 60%;
+        height: 60vh;
+    }
+
+    #app-add {
+        height: 45px;
+    }
+
+    #app-add input {
+        padding-left: 25px;
+        font-size: 1.2rem;
+    }
+
+    #add-btn:hover {
+        background-color: lime;
+        color: black;
+    }
+
+    .remove-btn:hover {
+        background-color: red;
+        color: black;
+    }
+
 }
