@@ -12,7 +12,7 @@ const app = Vue.createApp({
         addButton(inputAct){
             this.itemlist.push(inputAct)
         },
-        removeAct(index){
+        remove(index){
             this.itemlist.splice(index,1)
         }
     },
@@ -47,7 +47,7 @@ app.component('app-lists',{
     /*html*/
     `
     <ul id="app-lists">
-        <app-list :itemlist="itemlist" @remove-act="$emit('removeAct',index)"></app-list>
+        <app-list :itemlist="itemlist" @remove="$emit('remove',$event)"></app-list>
     </ul>
     `,
     props: ['itemlist'],
@@ -60,16 +60,17 @@ app.component('app-list',{
     <li v-for="(item,index) in itemlist" :key="index" class="app-list">
         <input type="checkbox">
         <span>{{item}}</span>
-        <button @click="removeAct" class="remove-btn"><i class="fas fa-trash"></i></button>
+        <button @click="$emit('remove',index)" class="remove-btn"><i class="fas fa-trash"></i></button>
     </li>
     `,
     props:['itemlist'],
     methods:{
-        removeAct(){
-            this.$emit('removeAct',this.index)
-        }
+        // removeAct(){
+        //     this.$emit('removeAct',this.index)
+        //     console.log(this.index)
+        // }
     },
-    emits: ['removeAct']
+    emits: ['remove']
 })
 
 
